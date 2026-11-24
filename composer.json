@@ -1,0 +1,37 @@
+{
+    "name": "taskflow/project-management",
+    "description": "Management de proiecte si pontaj - Varianta 15",
+    "type": "project",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Vicicu Viorel"
+        }
+    ],
+    "require": {
+        "php": ">=8.4",
+        "ext-pdo": "*",
+        "ext-pdo_mysql": "*",
+        "ext-mbstring": "*",
+        "ext-curl": "*",
+        "ext-openssl": "*",
+        "ext-fileinfo": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "TaskFlow\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "TaskFlow\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "scripts": {
+        "start": "php -S 127.0.0.1:8000 -t public"
+    }
+}
