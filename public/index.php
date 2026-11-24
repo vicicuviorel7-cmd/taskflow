@@ -43,9 +43,18 @@ $environment = $app->getEnvironment();
             și monitorizează timpul de lucru.
         </p>
 
-        <a href="#modules" class="button">
-            Descoperă proiectul
-        </a>
+        <div class="hero-buttons">
+
+    <a href="#modules" class="button">
+        Descoperă proiectul
+    </a>
+
+    <a href="requirements.php"
+       class="button secondary-button">
+        Cerințele proiectului
+    </a>
+
+</div>
     </section>
 
     <section class="cards" id="modules">
@@ -104,8 +113,8 @@ $environment = $app->getEnvironment();
 
             <article class="environment-card">
                 <p>Etapa proiectului</p>
-                <h3>2 / 20</h3>
-                <span class="success">Configurare</span>
+                <h3>3 / 20</h3>
+<span class="success">Analiză și specificare</span>
             </article>
 
         </div>
