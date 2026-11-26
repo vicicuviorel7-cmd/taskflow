@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 $title = $title ?? 'TaskFlow - Dashboard';
+
 $view = $view ?? __DIR__ . '/../dashboard/index.php';
 
 ?>
@@ -19,7 +20,21 @@ $view = $view ?? __DIR__ . '/../dashboard/index.php';
 
     <title><?= htmlspecialchars($title) ?></title>
 
+    <script>
+        try {
+            if (localStorage.getItem('taskflow-theme') === 'dark') {
+                document.documentElement.dataset.theme = 'dark';
+            }
+        } catch (error) {
+            // Tema implicită rămâne activă.
+        }
+    </script>
+
     <link rel="stylesheet" href="/assets/css/dashboard.css">
+
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+
+    <script src="/assets/js/dashboard.js" defer></script>
 
 </head>
 
@@ -29,7 +44,9 @@ $view = $view ?? __DIR__ . '/../dashboard/index.php';
 
         <?php require __DIR__ . '/../partials/sidebar.php'; ?>
 
-        <div class="main">
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <div class="main" id="mainArea">
 
             <?php require __DIR__ . '/../partials/header.php'; ?>
 
@@ -40,7 +57,11 @@ $view = $view ?? __DIR__ . '/../dashboard/index.php';
             </main>
 
             <footer class="footer">
+
                 © <?= date('Y') ?> TaskFlow — Vicicu Viorel
+
+                <span> | Programare Web II</span>
+
             </footer>
 
         </div>

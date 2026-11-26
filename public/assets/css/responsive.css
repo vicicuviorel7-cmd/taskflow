@@ -1,0 +1,455 @@
+/* =========================================
+   TASKFLOW - COMMIT 5
+   Responsive Design & Dark Mode
+   ========================================= */
+
+:root {
+    --surface: #ffffff;
+    --hover: #f8fafc;
+    --shadow: rgba(15, 23, 42, 0.06);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    transition: background-color 0.25s, color 0.25s;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid #818cf8;
+    outline-offset: 3px;
+}
+
+/* Antet îmbunătățit */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: var(--surface);
+    gap: 15px;
+}
+
+.header-left,
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icon-button {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 23px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.icon-button:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.menu-toggle,
+.close-menu {
+    display: none;
+}
+
+/* Meniu lateral */
+
+.sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.sidebar-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.sidebar nav a,
+.sidebar nav .nav-disabled {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sidebar nav .nav-icon {
+    display: inline;
+    padding: 0;
+    font-size: 17px;
+    color: inherit;
+    opacity: 1;
+}
+
+.sidebar nav .nav-disabled {
+    opacity: 0.65;
+    cursor: default;
+}
+
+.sidebar nav a {
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.secondary-menu-title {
+    margin-top: 30px;
+}
+
+.sidebar-overlay {
+    display: none;
+}
+
+/* Carduri și panouri */
+
+.stat-card,
+.panel {
+    background: var(--surface);
+    box-shadow: 0 5px 18px var(--shadow);
+}
+
+.stat-card {
+    position: relative;
+    overflow: hidden;
+    transition:
+        transform 0.25s,
+        box-shadow 0.25s,
+        background-color 0.25s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px var(--shadow);
+}
+
+.stat-card h2 {
+    font-variant-numeric: tabular-nums;
+}
+
+.stat-card .indicator {
+    width: 35px;
+    height: 6px;
+}
+
+tbody tr {
+    transition: background-color 0.2s;
+}
+
+tbody tr:hover {
+    background: var(--hover);
+}
+
+.progress div {
+    animation: progressAnimation 0.8s ease-out;
+}
+
+@keyframes progressAnimation {
+    from {
+        max-width: 0;
+    }
+
+    to {
+        max-width: 100%;
+    }
+}
+
+/* Animație la încărcarea paginii */
+
+.welcome,
+.statistics,
+.panel {
+    animation: fadeIn 0.5s ease-out both;
+}
+
+.statistics {
+    animation-delay: 0.1s;
+}
+
+.panel {
+    animation-delay: 0.2s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   DARK MODE
+   ========================================= */
+
+html[data-theme="dark"] {
+    color-scheme: dark;
+
+    --background: #111827;
+    --surface: #1e293b;
+    --dark: #f1f5f9;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --border: #334155;
+    --hover: #273449;
+    --shadow: rgba(0, 0, 0, 0.15);
+}
+
+html[data-theme="dark"] .sidebar {
+    background: #0f172a;
+    border-right: 1px solid #334155;
+}
+
+html[data-theme="dark"] .header,
+html[data-theme="dark"] .stat-card,
+html[data-theme="dark"] .panel {
+    background: var(--surface);
+}
+
+html[data-theme="dark"] th {
+    background: #273449;
+    color: #cbd5e1;
+}
+
+html[data-theme="dark"] .avatar {
+    background: #312e81;
+    color: #c7d2fe;
+}
+
+html[data-theme="dark"] .progress {
+    background: #475569;
+}
+
+html[data-theme="dark"] .progress div {
+    background: #818cf8;
+}
+
+html[data-theme="dark"] .working {
+    background: #312e81;
+    color: #c7d2fe;
+}
+
+html[data-theme="dark"] .completed {
+    background: #14532d;
+    color: #bbf7d0;
+}
+
+html[data-theme="dark"] .planned {
+    background: #78350f;
+    color: #fde68a;
+}
+
+/* =========================================
+   TABLETĂ
+   ========================================= */
+
+@media (max-width: 1100px) {
+
+    .sidebar {
+        width: 220px;
+    }
+
+    .statistics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    .content {
+        padding: 22px;
+    }
+
+    .header {
+        padding: 16px 22px;
+    }
+}
+
+/* =========================================
+   TELEFON
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .app {
+        display: block;
+    }
+
+    .main {
+        width: 100%;
+        min-height: 100vh;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: min(280px, 85vw);
+        height: 100vh;
+        height: 100dvh;
+        z-index: 1000;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        padding: 22px 16px;
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .sidebar nav {
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
+    .sidebar-footer {
+        display: block;
+    }
+
+    .sidebar-overlay.visible {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+        z-index: 999;
+    }
+
+    body.menu-open {
+        overflow: hidden;
+    }
+
+    .menu-toggle {
+        display: grid;
+    }
+
+    .close-menu {
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        background: transparent;
+        border: 1px solid #475569;
+        border-radius: 8px;
+        color: white;
+        font-size: 24px;
+    }
+
+    .header {
+        min-height: 70px;
+        padding: 12px 15px;
+    }
+
+    .header-left,
+    .header-actions {
+        gap: 10px;
+    }
+
+    .header h2 {
+        font-size: 17px;
+    }
+
+    .profile-info {
+        display: none;
+    }
+
+    .avatar {
+        width: 38px;
+        height: 38px;
+    }
+
+    .icon-button {
+        width: 38px;
+        height: 38px;
+        font-size: 20px;
+    }
+
+    .content {
+        padding: 18px 15px;
+    }
+
+    .welcome h1 {
+        font-size: 25px;
+    }
+
+    .welcome p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .statistics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .stat-card {
+        padding: 16px;
+    }
+
+    .stat-card h2 {
+        font-size: 30px;
+    }
+
+    .stat-card p {
+        font-size: 12px;
+    }
+
+    .panel {
+        padding: 16px;
+    }
+
+    .panel h2 {
+        font-size: 18px;
+    }
+
+    .footer {
+        font-size: 11px;
+        line-height: 1.7;
+    }
+}
+
+/* Telefoane foarte mici */
+
+@media (max-width: 360px) {
+
+    .statistics {
+        grid-template-columns: 1fr;
+    }
+
+    .header-left,
+    .header-actions {
+        gap: 6px;
+    }
+
+    .header h2 {
+        font-size: 15px;
+    }
+}
+
+/* Accesibilitate */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}

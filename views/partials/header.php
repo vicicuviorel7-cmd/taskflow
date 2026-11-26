@@ -2,15 +2,50 @@
 
 <header class="header">
 
-    <h2>Dashboard</h2>
+    <div class="header-left">
 
-    <div class="profile">
-        <div class="avatar">VV</div>
+        <button
+            type="button"
+            class="icon-button menu-toggle"
+            id="menuToggle"
+            aria-label="Deschide meniul"
+            aria-controls="sidebar"
+            aria-expanded="false"
+        >
+            ☰
+        </button>
 
-        <div>
-            <strong>Vicicu Viorel</strong>
-            <small>Administrator (demo)</small>
+        <h2>Dashboard</h2>
+
+    </div>
+
+    <div class="header-actions">
+
+        <button
+            type="button"
+            class="icon-button theme-toggle"
+            id="themeToggle"
+            aria-label="Activează modul întunecat"
+            aria-pressed="false"
+            title="Schimbă tema"
+        >
+            ☾
+        </button>
+
+        <div class="profile">
+
+            <div class="avatar">VV</div>
+
+            <div class="profile-info">
+
+                <strong>Vicicu Viorel</strong>
+
+                <small>Administrator (demo)</small>
+
+            </div>
+
         </div>
+
     </div>
 
 </header>
